@@ -40,6 +40,7 @@ function ShowPage() {
     <>
       <h1>Página de Status</h1>
       <div>{UpdatedAtText}</div>
+
       <h2>Database</h2>
       <div>{DatabaseStatusInformation}</div>
     </>
