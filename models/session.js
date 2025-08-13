@@ -77,27 +77,6 @@ async function findOneValidByToken(sessionToken) {
   }
 }
 
-async function findOneByToken(sessionToken) {
-  const ValidSession = await runInsertQuery(sessionToken);
-  return ValidSession;
-
-  async function runInsertQuery(sessionToken) {
-    const results = await database.query({
-      text: `
-        SELECT 
-          *
-        FROM  
-          sessions
-        WHERE
-          token = $1
-        LIMIT 1
-      ;`,
-      values: [sessionToken],
-    });
-    return results.rows[0];
-  }
-}
-
 const session = {
   create,
   renew,
